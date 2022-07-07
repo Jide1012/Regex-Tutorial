@@ -1,18 +1,17 @@
-# Title (replace with your title)
+# Title (Learning Regex)
 
-A Regular expression or (Regex) is a string of text that allows you to create patterns that help manage, locate, and match text.They began to emerge in the 1940s as a way to describe regular languages, but they really began to show up in the programming world during the 1970s.  Regular expressions are used in search engines, in search and replace dialogs of word processors and text editors. In this tutorial we will take a deeper look at Regex and understand how to use it.
+A Regular expression or (Regex) is a string of text that allows you to create patterns that help manage, locate, and match text.They started in the 1940s as a way to describe regular languages, but they really bursted onto the programming world during the 1970s.  Regular expressions are used in search engines, in search and replace dialogs of word processors and text editors. In this tutorial we will take a deeper look at Regex and understand how they work.
 
 
 
 
 ## Summary
 
-Briefly summarize the regex you will be describing and what you will explain. Include a code snippet of the regex. Replace this text with your summary.
+In this tutorial we are going to break down the email regex below. We will break down the different parts of the Regex from the Anchors, Quantifiers, Character Classes, Grouping and Capturing, and Bracket Expressions. We will learn how we get from the email regex below to jl20@gmail.com
 
 
+/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$
 
-
-/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$ 
 ## Table of Contents
 
 - [Anchors](#anchors)
@@ -23,9 +22,7 @@ Briefly summarize the regex you will be describing and what you will explain. In
 - [Grouping and Capturing](#grouping-and-capturing)
 - [Bracket Expressions](#bracket-expressions)
 - [Greedy and Lazy Match](#greedy-and-lazy-match)
-- [Boundaries](#boundaries)
-- [Back-references](#back-references)
-- [Look-ahead and Look-behind](#look-ahead-and-look-behind)
+
 
 ## Regex Components
 
@@ -37,7 +34,7 @@ Anchors have special meaning in regular expressions. Anchors are at the beginnin
 
 "^" is the caret anchor signifies the beginning of the text.
 "$" is the dollar anchor signifies the end of the text.
-We often use anchors to check if a string fully matches the pattern. We will discuss what goes between the anchors further along in this tutorial.more about the certain components in between the anchors further in depth in this tutorial.
+We often use anchors to check if a string fully matches the pattern. We will discuss what goes between the anchors further along in this tutorial.
 
 ### Quantifiers
 
@@ -49,8 +46,7 @@ Quantifiers take will tkae any symbol or group of symbols and multiply it by the
 
 ### OR Operator
 
-The OR operator is defined in the regex using "|". This is typically used for a set of operands is true if and only if one or more of its operands is true.  Lets take a look at this example  
-/^#?([a-f0-9]{6}|[a-f0-9]{3})$/. This shows an OR Operater is being used because this ' | ' means that the search engine wants to find hex codes that are either 6 or 3 digits or letters.
+The OR operator is defined in the regex using "|". This is typically used for a set of operands is true if and only if one or more of its operands is true.  Lets take a look at this example  "/^#?([a-f0-9]{6}|[a-f0-9]{3})$/". This shows an OR Operater is being used because ' | ' means that the search engine wants to find hex codes that are either 6 or 3 digits or letters.
 
 
 
@@ -62,8 +58,15 @@ Character classes distinguish kinds of characters such as, for example, distingu
 
 
 ### Flags
+A flag variable, in its simplest form, is a variable you define to have one value until some condition is true, in which case you change the variable's value. It is a variable you can use to control the flow of a function or statement, allowing you to check for certain conditions while your function progresses. An example of a flag would be the g variable which means global search.
+
+
 
 ### Grouping and Capturing
+
+Grouping is defined using "()" to seperate elements calling the array according to the string values of the testing functions. In simpler terms it is dividing the arrays using a parenthesis. Let's take a look at our email regex from above " /^([a-z0-9_.-]+)@([\da-z.-]+).([a-z.]{2,6})$/". As you can see we have 3 groups ([a-z0-9_.-]+), ([\da-z.-]+), and ([a-z.]{2,6}). We can also see that the "@" and "." symbol are not in any of the groups. Emails have a an "@" symbol then having the email provider after. So after the @ symbol we will get the service provider in the following group. This is similar with the "." symbol which is after the service provider. So to break this down a little further the first group "([a-z0-9_.-]+)" would be the first part of your email address, second group "([\da-z.-]+)" would be the "yahoo" or "gmail", and the last group would usually be the "com".
+
+
 
 
 ### Bracket Expressions
@@ -71,6 +74,11 @@ Character classes distinguish kinds of characters such as, for example, distingu
 Bracket Expressions tell a set of characters to match. Any individual character between the brackets will match. You can also use a hyphen to define a set. From we see both ranges [0-9] and [a-z]. For the first bracket this means the expression will search for any digit between 0-9 and for the second bracks the regex will try to serach all alphabetical letters that match between a and z.
 
 ### Greedy and Lazy Match
+
+"Greedy" means match the longest possible string and "Lazy" means match the shortest possible string. Our email Regex does not have a Greedy or Lazy match.
+
+
+
 
 
 ## Author
